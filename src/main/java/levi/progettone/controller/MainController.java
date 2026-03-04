@@ -6,7 +6,7 @@ import javafx.scene.layout.GridPane;
 
     public class MainController {
         @FXML private Label welcomeText;
-        @FXML private GridPane scacchiera;  // ← AGGIUNGI QUESTA RIGA
+        @FXML private GridPane Scacchiera;
 
         @FXML
         protected void onHelloButtonClick() {
