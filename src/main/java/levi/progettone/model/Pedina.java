@@ -9,6 +9,7 @@ public class Pedina {
         this.tipo = TipoPedina.NORMALE;
     }
 
+
     public TipoPedina getTipo() {
         return tipo;
     }

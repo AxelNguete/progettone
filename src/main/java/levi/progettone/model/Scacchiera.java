@@ -13,7 +13,7 @@ public class Scacchiera {
         for(int r = 0; r < 3; r++){
             for(int c = 0; c < 8; c++){
                 if((r + c) % 2 == 1){
-                    griglia[r][c] = new Pedina(ColorePedina.BLACK);
+                    griglia[r][c] = new Pedina(ColorePedina.NERO);
                 }
             }
 
@@ -23,7 +23,7 @@ public class Scacchiera {
         for(int r = 5; r < 8; r++){
             for(int c = 0; c < 8; c++){
                 if((r + c) % 2 == 1){
-                    griglia[r][c] = new Pedina(ColorePedina.WHITE);
+                    griglia[r][c] = new Pedina(ColorePedina.BIANCO);
                 }
             }
         }
