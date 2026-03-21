@@ -1,72 +1,76 @@
 package levi.progettone.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.geometry.Pos;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import levi.progettone.model.ColorePedina;
 import levi.progettone.model.Pedina;
 import levi.progettone.model.Scacchiera;
 
-
 public class MainController {
 
-    private static final int DIM_CASELLA = 100;
-    private static final int DIM_TAVOLA = 8;
+    @FXML
+    private GridPane griglia;
 
     private Scacchiera scacchiera = new Scacchiera();
-
-    @FXML
-    private ImageView immagineScacchiera;
-
-    @FXML
-    private Pane livelloPedine;
+    private static final int DIM_TAVOLA = 8;
+    private static final int DIM_CASELLA = 60;
 
     @FXML
     public void initialize() {
-        immagineScacchiera.setImage(
-                new Image(getClass().getResourceAsStream("/levi/progettone/views/images/scacchiera.jpg"))
-        );
-
-        disegnaPedine();
+        aggiornaGrafica();
     }
 
-    private void disegnaPedine() {
-        livelloPedine.getChildren().clear();
+    private void aggiornaGrafica() {
+        griglia.getChildren().clear();
+
+        griglia.getRowConstraints().clear();
+        griglia.getColumnConstraints().clear();
 
         for (int r = 0; r < DIM_TAVOLA; r++) {
             for (int c = 0; c < DIM_TAVOLA; c++) {
+                StackPane casella = new StackPane();
+
+
+                casella.setMinSize(DIM_CASELLA, DIM_CASELLA);
+                casella.setMaxSize(DIM_CASELLA, DIM_CASELLA);
+                casella.setPrefSize(DIM_CASELLA, DIM_CASELLA);
+
+                if ((r + c) % 2 == 0) {
+                    casella.setStyle("-fx-background-color: #f0d9b5;");
+                } else {
+                    casella.setStyle("-fx-background-color: #b58863;");
+                }
 
                 Pedina p = scacchiera.getPedina(r, c);
                 if (p != null) {
-                    livelloPedine.getChildren().add(creaNodoPedina(p, r, c));
+                    Circle cerchio = creaCerchioPedina(p);
+                    casella.getChildren().add(cerchio);
                 }
+
+
+                griglia.add(casella, c, r);
             }
         }
     }
 
-    private Circle creaNodoPedina(Pedina pedina, int riga, int colonna) {
 
-        double x = colonna * DIM_CASELLA + DIM_CASELLA / 2.0;
-        double y = riga * DIM_CASELLA + DIM_CASELLA / 2.0;
+    private Circle creaCerchioPedina(Pedina p) {
+        Circle c = new Circle(DIM_CASELLA * 0.4);
 
-        Circle cerchio = new Circle(DIM_CASELLA * 0.35);
-
-        if (pedina.getColore() == ColorePedina.BIANCO) {
-            cerchio.setFill(Color.BEIGE);
+        if (p.getColore() == ColorePedina.BIANCO) {
+            c.setFill(Color.WHITE);
+            c.setStroke(Color.DARKGRAY);
         } else {
-            cerchio.setFill(Color.DARKRED);
+            c.setFill(Color.BLACK);
+            c.setStroke(Color.WHITE);
         }
 
-        cerchio.setStroke(Color.BLACK);
-        cerchio.setStrokeWidth(2);
-
-        cerchio.setTranslateX(x);
-        cerchio.setTranslateY(y);
-
-        return cerchio;
+        c.setStrokeWidth(2);
+        return c;
     }
 }
 
