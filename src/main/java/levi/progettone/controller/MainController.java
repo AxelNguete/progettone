@@ -63,10 +63,10 @@ public class MainController {
 
         if (p.getColore() == ColorePedina.BIANCO) {
             c.setFill(Color.WHITE);
-            c.setStroke(Color.DARKGRAY);
+            c.setStroke(Color.LIGHTGREY);
         } else {
             c.setFill(Color.BLACK);
-            c.setStroke(Color.WHITE);
+            c.setStroke(Color.DARKGREY);
         }
 
         c.setStrokeWidth(2);
