@@ -1,14 +1,15 @@
 package levi.progettone.model;
 
+
 public class Pedina {
+
     private ColorePedina colore;
     private TipoPedina tipo;
 
     public Pedina(ColorePedina colore) {
         this.colore = colore;
-        this.tipo = TipoPedina.NORMALE;
+        this.tipo = TipoPedina.NORMALE; // tutte iniziano normali
     }
-
 
     public TipoPedina getTipo() {
         return tipo;
@@ -18,7 +19,7 @@ public class Pedina {
         return colore;
     }
 
-    public void promuovi(){
+    public void promuoviDama() {
         this.tipo = TipoPedina.DAMA;
     }
 }
