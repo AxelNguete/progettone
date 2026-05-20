@@ -221,7 +221,7 @@ public class MainController {
             int midC = (daC + aC) / 2; // colonna della pedina in mezzo
             Pedina pedinaInMezzo = scacchiera.getPedina(midR, midC);
 
-            // MODIFICA: La pedina normale non può mangiare un damone
+            // La pedina normale non può mangiare un damone
             boolean saltoValido = false;
             if (pedinaInMezzo != null && pedinaInMezzo.getColore() != p.getColore()) {
                 if (isDama || pedinaInMezzo.getTipo() != TipoPedina.DAMA) {
@@ -243,7 +243,7 @@ public class MainController {
             if (pedinaArrivata != null && pedinaArrivata.getTipo() == TipoPedina.NORMALE) {
                 if (pedinaArrivata.getColore() == ColorePedina.BIANCO && aR == 0) {
                     pedinaArrivata.promuoviDama();
-                } else if (pedinaArrivata.getColore() == ColorePedina.NERO && aR == DIM_TAVOLA - 1) {
+                } else if (pedinaArrivata.getColore() == ColorePedina.NERO && aR == 7) {
                     pedinaArrivata.promuoviDama();
                 }
             }
