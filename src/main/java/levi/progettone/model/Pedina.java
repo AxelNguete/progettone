@@ -8,7 +8,7 @@ public class Pedina {
 
     public Pedina(ColorePedina colore) {
         this.colore = colore;
-        this.tipo = TipoPedina.NORMALE; // tutte iniziano normali
+        this.tipo = TipoPedina.NORMALE;
     }
 
     public TipoPedina getTipo() {

@@ -4,6 +4,7 @@ module levi.progettone {
 
 
     opens levi.progettone to javafx.fxml;
+    opens levi.progettone.views to javafx.fxml;
     exports levi.progettone;
     exports levi.progettone.model;
     opens levi.progettone.model to javafx.fxml;

@@ -41,4 +41,17 @@ public class Scacchiera {
     public void rimuoviPedina(int r, int c) {
         griglia[r][c] = null;
     }
+
+    public int contaPedine(ColorePedina colore) {
+        int count = 0;
+        for (int r = 0; r < 8; r++) {
+            for (int c = 0; c < 8; c++) {
+                Pedina p = griglia[r][c];
+                if (p != null && p.getColore() == colore) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }
