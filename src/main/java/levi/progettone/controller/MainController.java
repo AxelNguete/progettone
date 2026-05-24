@@ -13,7 +13,6 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.animation.PathTransition;
 import javafx.util.Duration;
-import javafx.scene.control.TextArea;
 
 import levi.progettone.model.ColorePedina;
 import levi.progettone.model.Pedina;
@@ -32,9 +31,6 @@ Si occupa di:
 public class MainController {
     @FXML
     private GridPane griglia;
-
-    @FXML
-    private TextArea logArea;
 
     private Scacchiera scacchiera = new Scacchiera();
 
@@ -59,10 +55,7 @@ public class MainController {
         turnoCorrente = ColorePedina.BIANCO;
         selRiga = -1;
         selColonna = -1;
-        if (logArea != null) {
-            logArea.clear();
-            logArea.appendText("Nuova partita iniziata. Turno: Bianco\n");
-        }
+        System.out.println("Nuova partita iniziata. Turno: Bianco");
         griglia.setDisable(false);
         aggiornaGrafica();
     }
@@ -298,9 +291,7 @@ public class MainController {
     }
 
     public void log(String msg) {
-        if (logArea != null) {
-            logArea.appendText(msg + "\n");
-        }
+        System.out.println(msg);
     }
 
 
